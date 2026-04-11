@@ -44,7 +44,7 @@ ds = load_dataset("json", data_files="musica.jsonl", split="train")
 
 
 def formata(ex):
-    return {"text": ex["prompt"] + "\n" + ex["response"]}
+    return {"text": f"### Pergunta:\n{ex['prompt']}\n\n### Resposta:\n{ex['response']}"}
 
 
 ds = ds.map(formata, remove_columns=ds.column_names)
