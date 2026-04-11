@@ -48,6 +48,9 @@ def formata(ex):
 
 
 ds = ds.map(formata, remove_columns=ds.column_names)
+n = int(len(ds) * 0.9)
+ds_treino = ds.select(range(n))
+ds_teste = ds.select(range(n, len(ds)))
 
 args = SFTConfig(
     output_dir="adapter",
@@ -69,7 +72,8 @@ if __name__ == "__main__":
     trainer = SFTTrainer(
         model=modelo,
         processing_class=tok,
-        train_dataset=ds,
+        train_dataset=ds_treino,
+        eval_dataset=ds_teste,
         args=args,
     )
 
