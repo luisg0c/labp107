@@ -28,6 +28,8 @@ modelo = AutoModelForCausalLM.from_pretrained(
     device_map="auto"
 )
 tok = AutoTokenizer.from_pretrained(MODELO_BASE)
+tok.pad_token = tok.eos_token
+tok.padding_side = "right"
 
 cfg_lora = LoraConfig(
     task_type="CAUSAL_LM",
