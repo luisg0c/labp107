@@ -77,7 +77,6 @@ if __name__ == "__main__":
         args=args,
     )
 
-    print("treinando...")
     trainer.train()
 
     trainer.model.save_pretrained("adapter")
