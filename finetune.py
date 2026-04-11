@@ -13,7 +13,7 @@ DROPOUT = 0.1
 EPOCHS = 3
 BATCH = 4
 LR = 2e-4
-MAX_SEQ = 128
+MAX_SEQ = 256
 WARMUP = 0.03
 
 cfg_bnb = BitsAndBytesConfig(
